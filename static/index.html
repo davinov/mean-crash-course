@@ -9,7 +9,9 @@
 
     <div class="attendees-list" ng-controller="AttendeesController">
       <h2>Attendees</h2>
-
+      <p ng-repeat="attendee in attendees">
+        {{ attendee.firstname }}
+      </p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
