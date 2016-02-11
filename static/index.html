@@ -9,6 +9,9 @@
 
     <div class="attendees-list" ng-controller="AttendeesController">
       <h2>Attendees</h2>
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
       <p ng-repeat="attendee in attendees">
         {{ attendee.firstname }}
       </p>

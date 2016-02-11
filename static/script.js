@@ -11,5 +11,9 @@ angular.module('mean-course')
     // Look in your browser's console to see what happend
     console.log(response);
     // a 404 error :'(
+  })
+  // Handle the error case
+  .catch(function () {
+    $scope.error = "Unable to retrieve the list of attendees :'("
   });
 });
