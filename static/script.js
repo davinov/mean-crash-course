@@ -10,7 +10,7 @@ angular.module('mean-course')
   .then(function (response) {
     // Look in your browser's console to see what happend
     console.log(response);
-    // a 404 error :'(
+    // No more 404!
   })
   // Handle the error case
   .catch(function () {
