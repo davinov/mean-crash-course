@@ -16,9 +16,11 @@ MongoClient.connect('mongodb://127.0.0.1:27017/mean-course')
   // Listen on GET attendees
   app.get('/attendees', function (req, res) {
     // Be sure to have inserted some records in the collection!
-    var attendeesList = attendeesCollection.find();
-    // Oh snap! Error 500!
-    res.send(attendeesList);
+    attendeesCollection.find().toArray() // Beacause this is the Cursor, not the results direcly!
+    .then(function (attendeesList) {
+      console.log(attendeesList);
+      res.send(attendeesList);
+    })
   });
 
   var port = 3000;
