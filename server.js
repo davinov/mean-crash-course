@@ -3,6 +3,13 @@ var app = express();
 
 app.use(express.static('static'));
 
+// Connect to MongoDB
+var MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('mongodb://127.0.0.1:27017/mean-course', function(err, db) {
+  // Insert code that will use the database here!
+  console.log('Connected to Mongo!');
+});
+
 // Listen on GET attendees
 app.get('/attendees', function (req, res) {
   // Prepare attendees list
