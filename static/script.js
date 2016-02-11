@@ -3,15 +3,13 @@ angular.module('mean-course', []);
 
 // My first controller
 angular.module('mean-course')
-.controller('AttendeesController', function($scope) {
+.controller('AttendeesController', function($scope, $http) {
   // $scope represents all variables that will be available in the view
-  $scope.attendees = [{
-    firstname: 'david'
-  },{
-    firstname: 'sophie'
-  },{
-    firstname: 'jeremy'
-  },{
-    firstname: 'samya'
-  }];
+  // $http is used to call data from a web service (our API)
+  $http.get('/attendees')
+  .then(function (response) {
+    // Look in your browser's console to see what happend
+    console.log(response);
+    // a 404 error :'(
+  });
 });
