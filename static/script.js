@@ -8,12 +8,11 @@ angular.module('mean-course')
   // $http is used to call data from a web service (our API)
   $http.get('/attendees')
   .then(function (response) {
-    // Look in your browser's console to see what happend
-    console.log(response);
-    // No more 404!
+    // Actual data is in response.data, other info about the request are in the response object
+    $scope.attendees = response.data;
   })
   // Handle the error case
   .catch(function () {
-    $scope.error = "Unable to retrieve the list of attendees :'("
+    $scope.error = "Unable to retrieve the list of attendees :'(";
   });
 });
