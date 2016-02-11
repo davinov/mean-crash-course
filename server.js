@@ -9,24 +9,20 @@ MongoClient.connect('mongodb://127.0.0.1:27017/mean-course')
 .then(function (db) {
   // Insert code that will use the database here!
   console.log('Connected to Mongo!');
-});
 
-// Listen on GET attendees
-app.get('/attendees', function (req, res) {
-  // Prepare attendees list
-  var attendeesList = [{
-    firstname: 'david'
-  },{
-    firstname: 'sophie'
-  },{
-    firstname: 'jeremy'
-  },{
-    firstname: 'samya'
-  }];
-  res.send(attendeesList);
-});
+  // Our attendees collection
+  attendeesCollection = db.collection('attendees');
 
-var port = 3000;
-app.listen(port, function () {
-  console.log('Server is listening on port ' + port);
+  // Listen on GET attendees
+  app.get('/attendees', function (req, res) {
+    // Be sure to have inserted some records in the collection!
+    var attendeesList = attendeesCollection.find();
+    // Oh snap! Error 500!
+    res.send(attendeesList);
+  });
+
+  var port = 3000;
+  app.listen(port, function () {
+    console.log('Server is listening on port ' + port);
+  });
 });
