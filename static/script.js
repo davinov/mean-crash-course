@@ -16,3 +16,11 @@ angular.module('mean-course')
     $scope.error = "Unable to retrieve the list of attendees :'(";
   });
 });
+
+// My first filter
+angular.module('mean-course')
+.filter('capitalize', function () {
+  return function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  };
+});
