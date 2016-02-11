@@ -9,14 +9,16 @@
 
     <div class="attendees-list" ng-controller="AttendeesController">
       <h2>Attendees</h2>
+      <select ng-options="eyeColor for eyeColor in eyeColors" ng-model="eyeColorSelected"></select>
       <div class="alert alert-danger" role="alert" ng-show="error">
         {{ error }}
       </div>
-      <p ng-repeat="attendee in attendees">
+      <p ng-repeat="attendee in attendees" ng-show="attendee['eye-color'] == eyeColorSelected">
         {{ attendee.firstname | capitalize }}
       </p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="script.js"></script>
   </body>

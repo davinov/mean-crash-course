@@ -10,6 +10,11 @@ angular.module('mean-course')
   .then(function (response) {
     // Actual data is in response.data, other info about the request are in the response object
     $scope.attendees = response.data;
+    // Prepare unique values for options
+    $scope.eyeColors = _($scope.attendees)
+      .map('eye-color')
+      .uniq()
+      .value();
   })
   // Handle the error case
   .catch(function () {

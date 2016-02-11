@@ -18,7 +18,6 @@ MongoClient.connect('mongodb://127.0.0.1:27017/mean-course')
     // Be sure to have inserted some records in the collection!
     attendeesCollection.find().toArray() // Beacause this is the Cursor, not the results direcly!
     .then(function (attendeesList) {
-      console.log(attendeesList);
       res.send(attendeesList);
     })
   });
