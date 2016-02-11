@@ -5,7 +5,8 @@ app.use(express.static('static'));
 
 // Connect to MongoDB
 var MongoClient = require('mongodb').MongoClient;
-MongoClient.connect('mongodb://127.0.0.1:27017/mean-course', function(err, db) {
+MongoClient.connect('mongodb://127.0.0.1:27017/mean-course')
+.then(function (db) {
   // Insert code that will use the database here!
   console.log('Connected to Mongo!');
 });
